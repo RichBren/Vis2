@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": {"text": "World Corruption Index", "anchor": "middle"},
+  "title": {
+    "text" : "World Corruption Index",
+    "anchor": "middle"
+  },
   "autosize": {"resize": true},
   "data": {
     "url": "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/js/ne_110m_admin_0_countries.json",
@@ -48,11 +51,7 @@
             "color": {
               "field": "corruption_index",
               "type": "quantitative",
-              "scale": {
-                "domain": [20, 40, 60, 80],
-                "type": "threshold",
-                "scheme": "oranges"
-              }
+              "scale": {"domain": [20,40,60,80],"type": "threshold", "scheme": "oranges"}
             },
             "tooltip": [
               {
@@ -107,19 +106,23 @@
           "field": "corruption_index",
           "type": "quantitative",
           "title": "Corruption Index",
-          "scale": {"domain": [0, 100]}
+          "scale":{
+            "domain": [0, 100]
+          }
         },
         "y": {
-          "field": "properties.ADM0_A3",
-          "type": "nominal",
+          "field": "properties.ADM0_A3", 
+          "type": "nominal", 
           "title": "Country"
-        },
-        "color": {
-          "field": "properties.ADM0_A3",
-          "type": "nominal",
-          "legend": null,
-          "scale": {"scheme": "oranges"}
-        }
+          },
+        "color":{
+          "field": "properties.ADM0_A3", 
+          "type": "nominal", 
+          "legend":null,
+          "scale":{
+            "scheme": "oranges"
+          }
+          }
       }
     }
   ],
