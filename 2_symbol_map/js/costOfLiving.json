@@ -47,7 +47,11 @@
             "color": {
               "field": "corruption_index",
               "type": "quantitative",
-              "scale": {"domain": [20,40,60,80],"type": "threshold", "scheme": "oranges"}
+              "scale": {
+                "domain": [20, 40, 60, 80],
+                "type": "threshold",
+                "scheme": "oranges"
+              }
             },
             "tooltip": [
               {
@@ -102,23 +106,19 @@
           "field": "corruption_index",
           "type": "quantitative",
           "title": "Corruption Index",
-          "scale":{
-            "domain": [0, 100]
-          }
+          "scale": {"domain": [0, 100]}
         },
         "y": {
-          "field": "properties.ADM0_A3", 
-          "type": "nominal", 
+          "field": "properties.ADM0_A3",
+          "type": "nominal",
           "title": "Country"
-          },
-        "color":{
-          "field": "properties.ADM0_A3", 
-          "type": "nominal", 
-          "legend":null,
-          "scale":{
-            "scheme": "oranges"
-          }
-          }
+        },
+        "color": {
+          "field": "properties.ADM0_A3",
+          "type": "nominal",
+          "legend": null,
+          "scale": {"scheme": "oranges"}
+        }
       }
     }
   ],
