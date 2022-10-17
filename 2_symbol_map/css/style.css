@@ -1,8 +1,33 @@
+head {
+	font-size: 40px;
+	font-family: sans-serif;
+}
+
+body {
+	background-color: #EDE9E8;
+	font-size: 21px;
+	font-family: sans-serif;
+}
+
+
+.mainbox{
+	background: white;
+	width: 700px;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	margin-left: 590px;
+	padding: 10px;
+	font-family: sans-serif;
+	border: 3px solid black;
+}
+
+.center {
+	text-align: center
+}
+
 #symbol_map {
 	top:100px;
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
-	background: rgb(73, 13, 48);
-	text-align: center;
 }

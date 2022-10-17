@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <meta charset="utf-8">
+    <title>Visualisation 2 FIT3171</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Introduction and title -->
+    <div class="mainbox">
+        <h1 class="center"><b>FIT 3171 Visualisation 2</b></h1>
+        <p class="center"><b>World Economic Data</b></p>
+    </div>
+
+    <!-- First Chart -->
+    <script type="text/javascript">
+        var spec1 = "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/js/CostOfLivingVis.json";
+        vegaEmbed('#symbol_map', spec1).then(function(result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+</body>
+
+
+</html>
