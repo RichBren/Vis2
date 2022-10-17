@@ -1,32 +1,88 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "World Cost of Living",
-  "width": 800,
-  "height": 400,
+  "autosize": {"resize": true},
   "data": {
     "url": "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/js/ne_110m_admin_0_countries.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
-  "projection": {"type": "equalEarth"},
-  "layer": [
+  "vconcat": [
     {
-      "transform": [
+      "width": 800,
+      "height": 400,
+      "projection": {"type": "equalEarth"},
+      "layer": [
         {
-          "calculate": "'Data is not available for ' + datum.properties.NAME",
-          "as": "note"
+          "transform": [
+            {
+              "calculate": "'Data is not available for ' + datum.properties.NAME",
+              "as": "note"
+            }
+          ],
+          "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
+          "encoding": {"tooltip": {"field": "note"}}
+        },
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+            "format": {"type": "topojson", "feature": "oceans"}
+          },
+          "mark": {"type": "geoshape", "fill": "skyblue"}
+        },
+        {
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/data/corruption.csv"
+                },
+                "key": "country",
+                "fields": ["annual_income", "corruption_index"]
+              }
+            }
+          ],
+          "mark": {"type": "geoshape", "stroke": "black"},
+          "params": [{"name": "countrySelection", "select": {"type": "point"}}],
+          "encoding": {
+            "color": {
+              "field": "corruption_index",
+              "type": "quantitative",
+              "scale": {"domain": [20,40,60,80],"type": "threshold", "scheme": "oranges"}
+            },
+            "tooltip": [
+              {
+                "field": "properties.NAME",
+                "type": "nominal",
+                "title": "Country"
+              },
+              {"field": "annual_income", "type": "quantitative"},
+              {"field": "corruption_index", "type": "quantitative"}
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "lookup": "properties.NAME",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/3_choropleth_map/data/countryInfo.csv"
+                },
+                "key": "country",
+                "fields": ["latitude", "longitude"]
+              }
+            }
+          ],
+          "mark": {"type": "text"},
+          "encoding": {
+            "longitude": {"field": "longitude", "type": "quantitative"},
+            "latitude": {"field": "latitude", "type": "quantitative"}
+          }
         }
-      ],
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"},
-      "encoding": {"tooltip": {"field": "note"}}
+      ]
     },
     {
-      "data": {
-        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-        "format": {"type": "topojson", "feature": "oceans"}
-      },
-      "mark": {"type": "geoshape", "fill": "skyblue"}
-    },
-    {
+      "width": 700,
       "transform": [
         {
           "lookup": "properties.NAME",
@@ -37,23 +93,32 @@
             "key": "country",
             "fields": ["corruption_index"]
           }
-        }
+        },
+        {"filter": {"param": "countrySelection", "empty": false}}
       ],
-      "mark": {"type": "geoshape", "stroke": "black"},
+      "mark": {"type": "bar"},
       "encoding": {
-        "color": {
+        "x": {
           "field": "corruption_index",
           "type": "quantitative",
-          "scale": {"type": "linear", "scheme": "tealblues", "reverse": true}
-        },
-        "tooltip": [
-          {"field": "properties.NAME", "type": "nominal", "title": "Country"},
-          {
-            "field": "corruption_index",
-            "type": "quantitative",
-            "title": "Corruption Index"
+          "title": "Corruption Index",
+          "scale":{
+            "domain": [0, 100]
           }
-        ]
+        },
+        "y": {
+          "field": "properties.ADM0_A3", 
+          "type": "nominal", 
+          "title": "Country"
+          },
+        "color":{
+          "field": "properties.ADM0_A3", 
+          "type": "nominal", 
+          "legend":null,
+          "scale":{
+            "scheme": "oranges"
+          }
+          }
       }
     }
   ],
