@@ -20,7 +20,7 @@
     </div>
 
     <div class="titlebox">
-        <p>What will we be looking at based on the World Economic Dataset?</p>
+        <h1>What will we be looking at based on the World Economic Dataset?</h1>
         <p class="gtext">
             From this dataset, there will be 5 key topics which will be visualised.
             Firstly, the Corruption Index in the world, then the cost of living amang different
@@ -38,10 +38,20 @@
             on whether the annual income affects the corruption index.
         </p>
     </div>
-
-    <!-- First Chart -->
     <div id="symbol_map"></div>
 
+    <div class="titlebox2">
+        <h1>Worlds Richest Countries</h1>
+        <p class="gtext">
+            Here among 60 countries in the dataset, the top 10 countries were selected and visualised!.
+        </p>
+    </div>
+    <div id="symbol_map2"></div>
+
+
+
+
+    <!-- First Chart -->
     <script type="text/javascript">
         var spec1 = "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/js/corruption.json";
         vegaEmbed('#symbol_map', spec1).then(function(result) {
@@ -49,35 +59,14 @@
         }).catch(console.error);
     </script>
 
-    <div class="titlebox">
-        <p>What will we be looking at based on the World Economic Dataset?</p>
-        <p class="gtext">
-            From this dataset, there will be 5 key topics which will be visualised.
-            Firstly, the Corruption Index in the world, then the cost of living amang different
-            countries in the world. Other than that, we would also be looking at the richest countries 
-            in the world which will be measured using each countries gross domestic product. Lastly,
-            we will be looking at the number of tourist visiting respective countries around the world
-            and each countries unemployment rate. Note: not all countries are included in the dataset.
-        </p>
-        <p>Corruption Index In Various Countries Around the World</p>
-        <p class="gtext">
-            The graph on the right shows the corruption Index of different countries around the globe.
-            The information embeded in the graph contains the corruption index and the annual income.
-            By clicking around the map, we are able to see the a visualisation of the corruption index.
-            Eventhough just by looking at the annual income it is not enough to draw a proper conclusion 
-            on whether the annual income affects the corruption index.
-        </p>
-    </div>
-
     <!-- Second Chart -->
-    <div id="symbol_map2"></div>
-
     <script type="text/javascript">
         var spec2 = "https://raw.githubusercontent.com/RichBren/Vis2/main/2_symbol_map/js/richestCountries.json";
         vegaEmbed('#symbol_map2', spec2).then(function(result) {
         // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
         }).catch(console.error);
     </script>
+    
 
 </body>
 
