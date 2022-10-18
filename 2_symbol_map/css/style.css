@@ -44,6 +44,16 @@ body {
 	width: 40%;
 }
 
+.titlebox3{
+	font-family: sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	background: #F5E8C7;
+	margin: 1%;
+	padding: 10px;
+	margin-top: 80px;
+}
+
 
 
 .gtext{
@@ -59,12 +69,15 @@ body {
 	top: 20px;
 	bottom: 10px; 
 	left: 10px;
-	background: #F5E8C7;
 }
 
 #symbol_map2 {
 	top: 50px;
 	bottom: 10px; 
-	left: 200px;
-	right: 50px;
+	left: 50px;
+}
+
+#symbol_map3 {
+	bottom: 10px; 
+	left: 10px;
 }
