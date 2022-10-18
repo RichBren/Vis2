@@ -11,8 +11,8 @@
   },
   "vconcat": [
     {
-      "width": 800,
-      "height": 400,
+      "width": 900,
+      "height": 600,
       "projection": {"type": "equalEarth"},
       "layer": [
         {
@@ -86,7 +86,7 @@
       ]
     },
     {
-      "width": 700,
+      "width": 1000,
       "transform": [
         {
           "lookup": "properties.NAME",
